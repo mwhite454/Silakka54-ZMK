@@ -228,3 +228,15 @@
         };
     };
 };
+
+/*
+ * Test override: this board's nice!view-alike display didn't respond to the
+ * default CS pin (pro_micro 1 / D1). Trying pro_micro 0 / D0 instead, per a
+ * known working override on other split boards using the same adapter shield.
+ * Placed here (not in boards/nice_nano.overlay) because &nice_view_spi is
+ * defined by the nice_view_adapter shield, which loads AFTER board overlays
+ * but BEFORE this keymap file.
+ */
+&nice_view_spi {
+    cs-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>;
+};
