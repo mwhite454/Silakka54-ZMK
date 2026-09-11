@@ -1,0 +1,9 @@
+/*
+ * Test override: this board's nice!view-alike display didn't respond to the
+ * default CS pin (pro_micro 1 / D1). Trying pro_micro 0 / D0 instead, per a
+ * known working override on other split boards using the same adapter shield.
+ */
+
+&nice_view_spi {
+    cs-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>;
+};
